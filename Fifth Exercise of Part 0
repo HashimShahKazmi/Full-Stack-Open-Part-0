@@ -1,0 +1,19 @@
+SequenceDiagram
+ Participant User
+ Participant Browser
+ Participant Server
+ 
+ %% User visits the single-page-app version of the notes app at https://studies.cs.helsinki.fi/exampleapp/spa.
+ User->>Browser: Enters URL:  https://studies.cs.helsinki.fi/exampleapp/spa
+ activate Browser
+ %% Browser sends request to Server.
+ Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+ activate Server
+ Server-->>Browser: The HTML document.
+ %% The Server responds with the requested HTML file.
+ deactivate Server
+ %% After providing browser with the required document the Server is deactivated because at the time there is no further need of Server to remain activated.
+ Browser-->>User: Displays the HTML document.
+ %% https://studies.cs.helsinki.fi/exampleapp/spa. is displayed to the User.
+ deactivate Browser.
+ %% Browser is deactivated because at the time there is no further need of it to remain activated.
